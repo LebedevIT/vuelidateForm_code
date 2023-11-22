@@ -1,0 +1,292 @@
+.required {
+    color: red;
+  }
+
+  header {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-size: 14px;
+      opacity: .6;
+      transition: .3s;
+
+      &:hover {
+        text-decoration: underline;
+        opacity: 1;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 580px;
+    width: 100%;
+
+    .personal__info,
+    .address__info,
+    .document__info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      width: 100%;
+      height: fit-content;
+
+      select {
+        background-color: #282828;
+        border: 0;
+        outline: 0;
+        height: 42px;
+        border-radius: 5px;
+        color: #f2f2f2;
+        padding: 10px;
+        max-width: 280px;
+        width: 100%;
+        height: 42px;
+        &.error {
+            box-shadow: 0px 0px 5px red;
+        }
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 280px;
+        width: 100%;
+
+        .select_clients {
+          background-color: #282828;
+          border: 0;
+          outline: 0;
+          height: 42px;
+          border-radius: 5px;
+          color: #f2f2f2;
+          padding: 10px;
+          max-width: 280px;
+          width: 100%;
+          height: 42px;
+
+          p {
+            opacity: .7;
+          }
+        }
+
+        &.dont_send_sms {
+          .input {
+            display: flex;
+            flex-direction: row;
+            height: fit-content;
+            justify-content: center;
+          }
+        }
+
+        .input {
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+          height: 90px;
+
+
+          .selected_elems {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            flex-wrap: wrap;
+
+            a,
+            p {
+              font-size: 14px;
+              font-style: italic;
+              transition: .3s;
+
+              &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+              }
+            }
+          }
+
+          input {
+            &.error {
+                box-shadow: 0px 0px 5px red;
+            }
+            &[type=text],
+            &[type=date],
+            &[type=number] {
+              background-color: #282828;
+              border: 0;
+              outline: 0;
+              height: 42px;
+              border-radius: 5px;
+              color: #f2f2f2;
+              padding: 10px;
+              max-width: 280px;
+              width: 100%;
+              font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Segoe UI',
+                Roboto,
+                Oxygen,
+                Ubuntu,
+                Cantarell,
+                'Fira Sans',
+                'Droid Sans',
+                'Helvetica Neue',
+                sans-serif;
+            }
+
+            &[type=date] {
+              &::-webkit-calendar-picker-indicator {
+                color-scheme: dark;
+              }
+            }
+
+            &[type=number] {
+
+              &::-webkit-inner-spin-button,
+              &::-webkit-outer-spin-button {
+                appearance: none;
+              }
+            }
+
+            &[type=checkbox] {
+              appearance: none;
+              width: 1.5em;
+              height: 1.5em;
+              border: 0.15em solid #f2f2f2;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 2px;
+
+              &::before {
+                content: '';
+                width: 0.6em;
+                height: 0.6em;
+                transform: scale(0);
+                transition: .3s;
+                background-color: #00bd7e;
+              }
+
+              &:checked::before {
+                transform: scale(1);
+              }
+            }
+
+            &[type=radio] {
+              appearance: none;
+              width: 1.5em;
+              height: 1.5em;
+              border: 0.15em solid #f2f2f2;
+              border-radius: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              &::before {
+                content: '';
+                width: 0.6em;
+                height: 0.6em;
+                border-radius: 100%;
+                transform: scale(0);
+                transition: .3s;
+                background-color: #00bd7e;
+              }
+
+              &:checked::before {
+                transform: scale(1);
+              }
+            }
+          }
+        }
+
+        .genders {
+          display: flex;
+
+          .male,
+          .female {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+    button {
+      background-color: #00bd7e;
+      border: none;
+      width: 100%;
+      height: 42px;
+      border-radius: 5px;
+    }
+  }
+
+  .modal {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fade .5s ease-in-out forwards;
+    top: 0;
+    left: 0;
+    
+    .content {
+      background-color: #181818;
+      width: 100%;
+      max-width: 300px;
+      height: fit-content;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      h1 {
+        font-size: 28px;
+      }
+      span {
+        font-size: 14px;
+        margin-top: 10px;
+        opacity: .6;
+        transition: .3s;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  .slide-left-enter-active,
+  .slide-left-leave-active {
+    transition: all 0.5s ease;
+  }
+
+  .slide-left-enter-from,
+  .slide-left-leave-to {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
